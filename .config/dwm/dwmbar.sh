@@ -54,7 +54,7 @@ Volume() {
     iconeVol="\uf6a9"
   else
     iconeVol="\uf028"
-
+  fi
   echo -en "$iconeVol $volume"
 }
 
