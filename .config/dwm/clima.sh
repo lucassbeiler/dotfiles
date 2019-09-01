@@ -7,11 +7,12 @@ cut -d "," -f1
 }
 
 while :; do
-if [ "$(cat $HOME/.temperatura_atual)" != "$(Clima)" ]; then
-echo $(Clima) > $HOME/.temperatura_atual
+clima=$(Clima)
+if [ "$(cat $HOME/.temperatura_atual)" != "$clima" ]; then
+echo $clima > $HOME/.temperatura_atual
 fi
 
-if [ "$(Clima)" == "" ]; then
+if [ "$clima" == "" ]; then
 echo "ERRO" > $HOME/.temperatura_atual
 fi
 
