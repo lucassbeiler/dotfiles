@@ -67,6 +67,6 @@ Proce(){
 }
 
 while :; do
-      xsetroot -name "|$(Clima)|$(Volume)|$(Bateria)|$(Proce)|$(Rede)|$(Memoria)|$(Relogio)"
+      xsetroot -name "| $(Clima) | $(Volume) | $(Bateria) | $(Proce) | $(Rede) | $(Memoria) | $(Relogio)"
       sleep 1
 done &
