@@ -14,40 +14,31 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "xos4 Terminus:size=11", "FontAwesome:size=8" };
 static const char dmenufont[]       = "xos4 Terminus:size=10";
+
 /* dmenu colors */
 static const char dmenunb[]	    = "#282828";
 static const char dmenunf[]         = "#ebdbb2";
 static const char dmenusb[]         = "#458588";
 static const char dmenusf[]         = "#282828";
+
 /* general colors */
-static const char col_gray1[]       = "#282828";
 static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char cores[]    	    = "#1a1a1a";
-static const char cores1[]    	    = "#494942";
+static const char cores[]    	    = "#262626";
 static const char col_fg_bar[]      = "#B0B0B0";
-static const char col_fg_bar1[]     = "#000000";
 static const char col_cyan[]        = "#005577";
 static const char col_black[]       = "#000000";
 static const char col_white[]       = "#ffffff";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_fg_bar, cores, col_gray2 },
-	[SchemeSel]  = { col_white, col_black,  col_cyan  },
+	[SchemeSel]  = { col_white, cores,  col_cyan  },
 };
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
-        /* xprop(1):
-         *      WM_CLASS(STRING) = instance, class
-         *      WM_NAME(STRING) = title
-         */
-        /* class      instance    title       tags mask     isfloating   monitor */
-        { "Gimp",     NULL,       NULL,       0,            1,           -1 },
-/*        { "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },*/
+	{ "Android Studio", NULL, NULL, 0, 1, -1 },
 };
 
 
@@ -87,9 +78,9 @@ static Key keys[] = {
 	{ 0,				XF86XK_AudioMute,        spawn, SHCMD("maim -u -s | xclip -selection clipboard -t image/png") },
 
 	/* standard bindings */
-	{ MODKEY|ShiftMask,		XK_c,	   spawn,	   SHCMD("firejail --private=prv-chromim --disable-mnt --noroot --apparmor chromium --incognito --start-maximized") },
+	{ MODKEY|ShiftMask,		XK_c,	   spawn,	   SHCMD("firejail --private=prv-chromim --disable-mnt chromium --incognito --start-maximized") },
 	/*{ MODKEY|ShiftMask,		XK_c,	   spawn,	   SHCMD("firejail --private=prv-chromim --disable-mnt --noroot --apparmor firefox-bin --private-window") }, */
-	{ MODKEY|ShiftMask,		XK_m,	   spawn,	   SHCMD("firejail --private=prv-deezer --disable-mnt --noroot --apparmor chromium --start-maximized") },
+	{ MODKEY|ShiftMask,		XK_m,	   spawn,	   SHCMD("firejail --private=prv-deezer --disable-mnt chromium --start-maximized") },
 	{ MODKEY|ShiftMask,		XK_t,	   spawn,	   SHCMD("firejail --private=prv-telego --seccomp --disable-mnt --noroot --apparmor telegram-desktop") },
 
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
