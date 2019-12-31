@@ -2,7 +2,8 @@
 
 Memoria(){
       ram=$(free -mh | awk '{print $3}' | sed -n '2p' | sed "s/Gi/GB/")
-      echo -en "\uf538 $ram"
+      swap=$(free -mh | awk '{print $3}' | sed -n '3p' | sed "s/Gi/GB/")
+      echo -en "\uf538 $ram / $swap"
 }
 
 Relogio() {
