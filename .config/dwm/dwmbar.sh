@@ -40,7 +40,7 @@ Bateria() {
 }
 
 Rede() {
-	ip=$(ip addr show scope global | awk '$1 ~ /^inet/ {print $2}' | cut -d "/" -f1)
+	ip=$(ip addr show scope global | awk '$1 ~ /^inet/ {print $2}' | cut -d "/" -f1 | sed -n '1p')
 	echo -en "\uf1eb $ip"
 }
 
