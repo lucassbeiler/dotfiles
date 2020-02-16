@@ -78,7 +78,8 @@ static Key keys[] = {
 	{ 0,				XF86XK_AudioMute,        spawn, SHCMD("maim -u -s | xclip -selection clipboard -t image/png") },
 
 	/* standard bindings */
-	{ MODKEY|ShiftMask,		XK_c,	   spawn,	   SHCMD("firejail --private=prv-chromim chromium --incognito --start-maximized") },
+//	{ MODKEY|ShiftMask,		XK_c,	   spawn,	   SHCMD("firejail --private=prv-chromim chromium --incognito --start-maximized") },
+	{ MODKEY|ShiftMask,		XK_c,	   spawn,	   SHCMD("firejail --private=prv-firefox firefox") },
 	{ MODKEY|ShiftMask,		XK_m,	   spawn,	   SHCMD("firejail --private=prv-deezer chromium --start-maximized --app=https://deezer.com/es/loved") },
 	{ MODKEY|ShiftMask,		XK_t,	   spawn,	   SHCMD("firejail --private=prv-telego telegram-desktop") },
 
