@@ -13,12 +13,7 @@ Relogio() {
 
 Clima() {
 	temperatura="$(cat $HOME/.temperatura_atual)"
-	if [ "$temperatura" -ge '17' ]; then
-		iconTemp="\uf185" #calor
-	elif [ "$temperatura" -le '16' ]; then
-		iconTemp="\uf2dc" #frio comfy
-	fi
-	echo -en "$iconTemp $temperatura⁰C"
+	echo -en "\uf0c2 $temperatura⁰C"
 }
 
 Bateria() {
