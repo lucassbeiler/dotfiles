@@ -13,7 +13,7 @@ Relogio() {
 
 Clima() {
 	temperatura="$(cat $HOME/.temperatura_atual)"
-	echo -en "\uf0c2 $temperatura⁰C"
+	echo -en "\uf0c2 $temperatura"
 }
 
 Bateria() {
