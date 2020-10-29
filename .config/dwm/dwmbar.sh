@@ -40,8 +40,8 @@ Rede() {
 }
 
 Volume() {
-	volume=$(amixer get Master | grep -o -E [[:digit:]]+% | tail -n1)
-	volumeInt=$(amixer get Master | grep -o -E [[:digit:]]+% | tail -n1 | cut -d "%" -f1)
+	volume=$(pactl list sinks | grep "^[[:space:]]Volume:" | cut -d'/' -f2 | head -n1)
+	volumeInt=$(echo "${volume//[!0-9]/}")
 
 	if [ "$volumeInt" -gt '48' ]; then
 		iconeVol="\uf028"
@@ -53,7 +53,7 @@ Volume() {
     		iconeVol="\uf6a9"
   	fi
 
-  	echo -en "$iconeVol $volume"
+  	echo -en "$iconeVol $volumeInt%"
 }
 
 Proce(){

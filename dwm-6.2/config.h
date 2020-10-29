@@ -12,8 +12,8 @@ static const int systraypinningfailfirst = 1;
 
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "xos4 Terminus:size=11", "FontAwesome:size=8" };
-static const char dmenufont[]       = "xos4 Terminus:size=10";
+static const char *fonts[]          = { "Hack:size=10", "FontAwesome:size=8" };
+static const char dmenufont[]       = "Hack:size=10";
 
 /* dmenu colors */
 static const char dmenunb[]	    = "#282828";
@@ -69,20 +69,19 @@ static const Layout layouts[] = {
 /* main commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spa/n() */
 static const char *dmenucmd[] = { "dmenu_run", "-i", "-m", dmenumon, "-fn", dmenufont, "-nb", dmenunb, "-nf", dmenunf, "-sb", dmenusb, "-sf", dmenusf, NULL };
-static const char *termcmd[]  = { "./st_dire/st", NULL };
+static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
 #include <X11/XF86keysym.h>
-	{ 0,		                XF86XK_AudioRaiseVolume, spawn, SHCMD("amixer sset 'Master' 5%+") },
-	{ 0,				XF86XK_AudioLowerVolume, spawn, SHCMD("amixer sset 'Master' 5%-") },
-	{ 0,				XF86XK_AudioMute,        spawn, SHCMD("maim -u -s | xclip -selection clipboard -t image/png") },
+	{ 0,		                XF86XK_AudioRaiseVolume, spawn, SHCMD("pactl set-sink-volume 0 +5%") },
+	{ 0,				XF86XK_AudioLowerVolume, spawn, SHCMD("pactl set-sink-volume 0 -5%") },
+//	{ 0,				XF86XK_AudioMute,        spawn, SHCMD("maim -u -s | xclip -selection clipboard -t image/png") },
 
 	/* standard bindings */
-//	{ MODKEY|ShiftMask,		XK_c,	   spawn,	   SHCMD("firejail --private=prv-chromim chromium --incognito --start-maximized") },
-	{ MODKEY|ShiftMask,		XK_c,	   spawn,	   SHCMD("firejail --private=prv-firefox firefox") },
-	{ MODKEY|ShiftMask,		XK_m,	   spawn,	   SHCMD("firejail --private=prv-deezer chromium --start-maximized --app=https://deezer.com/es/loved") },
-	{ MODKEY|ShiftMask,		XK_t,	   spawn,	   SHCMD("firejail --private=prv-telego telegram-desktop") },
-
+	{ MODKEY|ShiftMask,		XK_c,	   spawn,	   SHCMD("chromium --incognito --start-maximized") },
+	{ MODKEY|ShiftMask,		XK_t,	   spawn,	   SHCMD("bwrap --ro-bind /usr/bin/telegram-desktop /usr/bin/telegram-desktop --ro-bind /usr/lib64 /usr/lib64 --ro-bind /usr/lib /usr/lib --ro-bind /usr/share/fonts /usr/share/fonts --ro-bind /etc/ca-certificates /etc/ca-certificates --ro-bind-try /etc/crypto-policies /etc/crypto-policies --ro-bind /etc/fonts /etc/fonts --ro-bind /etc/ld.so.cache /etc/ld.so.cache --ro-bind /etc/localtime /etc/localtime --ro-bind /etc/machine-id /etc/machine-id --ro-bind-try /etc/pki /etc/pki --ro-bind /etc/pulse /etc/pulse --ro-bind /etc/resolv.conf /etc/resolv.conf --ro-bind /etc/ssl /etc/ssl  --ro-bind /home /home --symlink /usr/lib64 /lib64 --proc /proc --dev /dev --tmpfs /tmp --unshare-all --share-net --die-with-parent --new-session --dir /run/user/$(id -u) --ro-bind /run/user/$(id -u)/pulse /run/user/$(id -u)/pulse  --cap-drop ALL --ro-bind /usr/share/X11/locale /usr/share/X11/locale --bind $HOME/.local/share/TelegramDesktop $HOME/.local/share/TelegramDesktop telegram-desktop") },
+	{ MODKEY,			XK_z,	   spawn,	   SHCMD("flameshot gui") },
+	{ MODKEY,			XK_a,	   spawn,	   SHCMD("flameshot") },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
