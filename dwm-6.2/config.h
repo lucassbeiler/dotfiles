@@ -12,8 +12,8 @@ static const int systraypinningfailfirst = 1;
 
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Hack:size=10", "FontAwesome:size=8" };
-static const char dmenufont[]       = "Hack:size=10";
+static const char *fonts[]          = { "xos4 Terminus:size=10", "FontAwesome:size=8" };
+static const char dmenufont[]       = "xos4 Terminus:size=10";
 
 /* dmenu colors */
 static const char dmenunb[]	    = "#282828";
@@ -79,7 +79,7 @@ static Key keys[] = {
 
 	/* standard bindings */
 	{ MODKEY|ShiftMask,		XK_c,	   spawn,	   SHCMD("chromium --incognito --start-maximized") },
-	{ MODKEY|ShiftMask,		XK_t,	   spawn,	   SHCMD("bwrap --ro-bind /usr/bin/telegram-desktop /usr/bin/telegram-desktop --ro-bind /usr/lib64 /usr/lib64 --ro-bind /usr/lib /usr/lib --ro-bind /usr/share/fonts /usr/share/fonts --ro-bind /etc/ca-certificates /etc/ca-certificates --ro-bind-try /etc/crypto-policies /etc/crypto-policies --ro-bind /etc/fonts /etc/fonts --ro-bind /etc/ld.so.cache /etc/ld.so.cache --ro-bind /etc/localtime /etc/localtime --ro-bind /etc/machine-id /etc/machine-id --ro-bind-try /etc/pki /etc/pki --ro-bind /etc/pulse /etc/pulse --ro-bind /etc/resolv.conf /etc/resolv.conf --ro-bind /etc/ssl /etc/ssl  --ro-bind /home /home --symlink /usr/lib64 /lib64 --proc /proc --dev /dev --tmpfs /tmp --unshare-all --share-net --die-with-parent --new-session --dir /run/user/$(id -u) --ro-bind /run/user/$(id -u)/pulse /run/user/$(id -u)/pulse  --cap-drop ALL --ro-bind /usr/share/X11/locale /usr/share/X11/locale --bind $HOME/.local/share/TelegramDesktop $HOME/.local/share/TelegramDesktop telegram-desktop") },
+	{ MODKEY|ShiftMask,		XK_t,	   spawn,	   SHCMD("bwrap --ro-bind /usr/bin/telegram-desktop /usr/bin/telegram-desktop --ro-bind /usr/lib64 /usr/lib64 --ro-bind /usr/lib /usr/lib --ro-bind /usr/share/fonts /usr/share/fonts --ro-bind /etc/ca-certificates /etc/ca-certificates --ro-bind /etc/localtime /etc/localtime --ro-bind /etc/pulse /etc/pulse --ro-bind /etc/resolv.conf /etc/resolv.conf --ro-bind /etc/ssl /etc/ssl  --ro-bind /usr/share/X11/locale /usr/share/X11/locale --ro-bind /run/user/$(id -u)/pulse /run/user/$(id -u)/pulse  --symlink /usr/lib64 /lib64 --proc /proc --dev /dev --tmpfs /tmp --mqueue /dev/mqueue --unshare-all --share-net --die-with-parent --new-session --dir /run/user/$(id -u) --cap-drop ALL --ro-bind $HOME/ $HOME/ --bind $HOME/.local/share/TelegramDesktop $HOME/.local/share/TelegramDesktop telegram-desktop") },
 	{ MODKEY,			XK_z,	   spawn,	   SHCMD("flameshot gui") },
 	{ MODKEY,			XK_a,	   spawn,	   SHCMD("flameshot") },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
