@@ -73,9 +73,8 @@ static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
 #include <X11/XF86keysym.h>
-	{ 0,		                XF86XK_AudioRaiseVolume, spawn, SHCMD("pactl set-sink-volume 0 +5%") },
-	{ 0,				XF86XK_AudioLowerVolume, spawn, SHCMD("pactl set-sink-volume 0 -5%") },
-//	{ 0,				XF86XK_AudioMute,        spawn, SHCMD("maim -u -s | xclip -selection clipboard -t image/png") },
+	{ 0,		        XF86XK_AudioRaiseVolume, spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%") },
+	{ 0,				XF86XK_AudioLowerVolume, spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%") },
 
 	/* standard bindings */
 	{ MODKEY|ShiftMask,		XK_c,	   spawn,	   SHCMD("brave --incognito --start-maximized") },
