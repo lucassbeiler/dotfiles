@@ -77,7 +77,7 @@ static Key keys[] = {
 	{ 0,				XF86XK_AudioLowerVolume, spawn, SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%") },
 
 	/* standard bindings */
-	{ MODKEY|ShiftMask,		XK_c,	   spawn,	   SHCMD("brave --incognito --start-maximized") },
+	{ MODKEY|ShiftMask,		XK_c,	   spawn,	   SHCMD("chromium --incognito --start-maximized") },
 	{ MODKEY|ShiftMask,		XK_t,	   spawn,	   SHCMD("bwrap --ro-bind /usr/bin/telegram-desktop /usr/bin/telegram-desktop --ro-bind /usr/lib64 /usr/lib64 --ro-bind /usr/lib /usr/lib --ro-bind /usr/share/fonts /usr/share/fonts --ro-bind /etc/ca-certificates /etc/ca-certificates --ro-bind /etc/localtime /etc/localtime --ro-bind /etc/pulse /etc/pulse --ro-bind /etc/resolv.conf /etc/resolv.conf --ro-bind /etc/ssl /etc/ssl  --ro-bind /usr/share/X11/locale /usr/share/X11/locale --ro-bind /run/user/$(id -u)/pulse /run/user/$(id -u)/pulse  --symlink /usr/lib64 /lib64 --proc /proc --dev /dev --tmpfs /tmp --mqueue /dev/mqueue --unshare-all --share-net --die-with-parent --new-session --dir /run/user/$(id -u) --cap-drop ALL --ro-bind $HOME/ $HOME/ --bind $HOME/.local/share/TelegramDesktop $HOME/.local/share/TelegramDesktop telegram-desktop") },
 	{ MODKEY,			XK_z,	   spawn,	   SHCMD("flameshot gui") },
 	{ MODKEY,			XK_a,	   spawn,	   SHCMD("flameshot") },

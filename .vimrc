@@ -34,17 +34,31 @@ Plug 'sheerun/vim-polyglot'
 Plug 'preservim/nerdtree'
 Plug 'jremmen/vim-ripgrep'
 Plug 'kien/ctrlp.vim'
-Plug 'AlessandroYorba/Alduin'
+Plug 'andreasvc/vim-256noir'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'chrisbra/colorizer'
+Plug 'APZelos/blamer.nvim'
+Plug 'moll/vim-node'
+Plug 'posva/vim-vue'
 call plug#end()
 
 
 if &term =~ '256color'
     set t_ut=
 endif
+
+" Blamer settings
+let g:blamer_enabled = 1
+let g:blamer_prefix = ' > '
+let g:blamer_delay = 500
+highlight Blamer guifg=lightgrey
+
+" Colorizer settings
 let g:colorizer_auto_color = 1
-"colorscheme alduin
-colorscheme desert
+
+" colorscheme 256_noir
+set cursorline
+autocmd InsertEnter * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=234 guifg=NONE guibg=#1c1c1c
+autocmd InsertLeave * highlight CursorLine cterm=NONE ctermfg=NONE ctermbg=233 guifg=NONE guibg=#121212
 set background=dark
 filetype plugin on

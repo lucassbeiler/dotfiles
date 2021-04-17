@@ -3,9 +3,12 @@
 xset +fp /usr/share/fonts
 xset fp rehash
 
+if [ "$(cat /sys/class/drm/*HDMI*/status)" = "connected" ]; then
+	xrandrArgs="--output eDP-1-1 --off"
+fi
 
 exec xrandr --setprovideroutputsource modesetting NVIDIA-0 &
-exec xrandr --auto --output eDP-1-1 --off &
+exec xrandr --auto ${xrandrArgs} &
 exec picom -b --experimental-backends &
 exec dwmbar.sh &
 exec clima.sh &
