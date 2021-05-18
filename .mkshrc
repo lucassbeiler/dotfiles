@@ -1,0 +1,31 @@
+#
+# ~/.mkshrc
+#
+
+bind ^L=clear-screen
+
+GREEN=$(print '\033[32;01m')
+RED=$(print '\033[31;01m')
+BLUE=$(print '\033[34;01m')
+NORMAL=$(print '\033[0m')
+HOSTNAME=$(cat /etc/hostname)
+
+[ `id -u` = '0' ] && PS1=$'$RED$HOSTNAME$BLUE [${PWD/$HOME/\\~}] # 
+$NORMAL '||
+PS1=$'$BLUE$GREEN$USER@$HOSTNAME$BLUE [${PWD/$HOME/\\~}] $
+$NORMAL> '
+
+PS2='> '
+
+export PS1 PS2
+# History
+HISTFILE="$HOME/.mksh_history"
+HISTSIZE=5000
+
+
+for teste in /usr/bin/uu-*; do
+	alias "$(echo $teste | cut -d '-' -f2)"="$teste"
+done
+
+alias neofetch='neofetch --color_blocks off'
+alias ls='exa --color-scale --sort=type --group-directories-first'
