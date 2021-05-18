@@ -69,7 +69,7 @@ static const Layout layouts[] = {
 /* main commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spa/n() */
 static const char *dmenucmd[] = { "dmenu_run", "-i", "-m", dmenumon, "-fn", dmenufont, "-nb", dmenunb, "-nf", dmenunf, "-sb", dmenusb, "-sf", dmenusf, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 
 static Key keys[] = {
 #include <X11/XF86keysym.h>
@@ -78,7 +78,7 @@ static Key keys[] = {
 
 	/* standard bindings */
 	{ MODKEY|ShiftMask,		XK_c,	   spawn,	   SHCMD("chromium --incognito --start-maximized") },
-	{ MODKEY|ShiftMask,		XK_t,	   spawn,	   SHCMD("bwrap --ro-bind /usr/bin/telegram-desktop /usr/bin/telegram-desktop --ro-bind /usr/lib64 /usr/lib64 --ro-bind /usr/lib /usr/lib --ro-bind /usr/share/fonts /usr/share/fonts --ro-bind /etc/ca-certificates /etc/ca-certificates --ro-bind /etc/localtime /etc/localtime --ro-bind /etc/pulse /etc/pulse --ro-bind /etc/resolv.conf /etc/resolv.conf --ro-bind /etc/ssl /etc/ssl  --ro-bind /usr/share/X11/locale /usr/share/X11/locale --ro-bind /run/user/$(id -u)/pulse /run/user/$(id -u)/pulse  --symlink /usr/lib64 /lib64 --proc /proc --dev /dev --tmpfs /tmp --mqueue /dev/mqueue --unshare-all --share-net --die-with-parent --new-session --dir /run/user/$(id -u) --cap-drop ALL --ro-bind $HOME/ $HOME/ --bind $HOME/.local/share/TelegramDesktop $HOME/.local/share/TelegramDesktop telegram-desktop") },
+	{ MODKEY|ShiftMask,		XK_t,	   spawn,	   SHCMD("chromium --start-maximized --app='https://webk.telegram.org/'") },
 	{ MODKEY,			XK_z,	   spawn,	   SHCMD("flameshot gui") },
 	{ MODKEY,			XK_a,	   spawn,	   SHCMD("flameshot") },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
